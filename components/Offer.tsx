@@ -5,45 +5,62 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Image from "next/image";
-import { useRef } from "react";
+
+import { useRef, useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { type CarouselApi } from "@/components/ui/carousel";
+import MyImage from "./MyImage";
 
 const Offer = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
   const autoplayRef = useRef(Autoplay({ delay: 2000 }));
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    const handleSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    };
+
+    api.on("select", handleSelect);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      api.off("select", handleSelect);
+    };
+  }, [api]);
 
   return (
     <Carousel
+      setApi={setApi}
       opts={{
         align: "start",
       }}
-      className="w-full h-full" // Ensure it takes full height
+      className="w-[600px] h-[200px]"
       plugins={[autoplayRef.current]}
     >
       <CarouselContent>
-        <CarouselItem className="flex justify-center items-center h-full">
-          <Image
-            src="/images/Advert.jpg"
-            alt="women"
-            layout="fill" // Use fill to cover the aspect ratio
-            objectFit="cover" // Maintain aspect ratio
-          />
+        <CarouselItem className="flex justify-center items-center basis-1/3 ">
+             <MyImage src="/images/Advert.jpg" alt="" height={150} width={150} className="object-cover"/>
         </CarouselItem>
-        <CarouselItem className="flex justify-center items-center h-full">
-          <Image
-            src="/images/Advert1.jpeg"
-            alt="women"
-            layout="fill" // Use fill to cover the aspect ratio
-            objectFit="cover" // Maintain aspect ratio
-          />
+        <CarouselItem className="flex justify-center items-center basis-1/3">
+             <MyImage src="/images/Advert4.jpeg" alt="" height={150} width={150} className="object-cover"/>
         </CarouselItem>
-        <CarouselItem className="flex justify-center items-center h-full">
-          <Image
-            src="/images/Adver2.jpeg"
-            alt="women"
-            layout="fill" // Use fill to cover the aspect ratio
-            objectFit="cover" // Maintain aspect ratio
-          />
+        <CarouselItem className="flex justify-center items-center basis-1/3">
+            <MyImage src="/images/Advert3.jpeg" alt="" height={150} width={150} className="object-cover"/>
+        </CarouselItem>
+        <CarouselItem className="flex justify-center items-center basis-1/3">
+            <MyImage src="/images/Advert5.jpeg" alt="" height={150} width={150} className="object-cover"/>
+        </CarouselItem>
+        <CarouselItem className="flex justify-center items-center basis-1/3">
+            <MyImage src="/images/Advert6.jpeg" alt="" height={150} width={150} className="object-cover"/>
         </CarouselItem>
       </CarouselContent>
     </Carousel>
