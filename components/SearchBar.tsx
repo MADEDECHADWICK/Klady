@@ -1,17 +1,43 @@
-import React from 'react'
-import { Button } from './ui/button'
+import { SearchIcon } from 'lucide-react'
+import { Input } from '@/components/ui/input'
 
-const SearchBar = () => {
-  return (
-    <div className="flex items-center border border-gray-500 rounded-full overflow-hidden">
-      <input
-        type="text"
-        placeholder="What's in your mind..."
-        className="p-2 w-full border-none focus:outline-none focus:ring-2 focus:ring-grey-500"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+ import React from 'react'
+ 
+ const SearchBar = () => {
+   return (
+     <form className='flex  items-stretch h-10' >
+      <Select>
+      <SelectTrigger className='w-auto h-full dark:border-gray-200 bg-gray-100 text-black border-r  rounded-r-none rounded-l-md rtl:rounded-r-md rtl:rounded-l-none'>
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="light">Light</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+      </SelectContent>
+    </Select>
+    <Input
+        className='flex-1 rounded-none dark:border-gray-200 bg-gray-100 text-black text-base h-full'
+        placeholder=""
+        name='q'
+        type='search'
       />
-     <Button type="submit" className="bg-white" size="lg">Search</Button>
-    </div>
-  )
-}
+      <button
+        type='submit'
+        className='bg-primary text-primary-foreground text-black rounded-s-none rounded-e-md h-full px-3 py-2 '
+      >
+        <SearchIcon className='w-6 h-6' />
+      </button>
 
-export default SearchBar
+     </form>
+   )
+ }
+ 
+ export default SearchBar
