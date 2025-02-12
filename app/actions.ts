@@ -52,7 +52,7 @@ export const deleteClothes = async (id: number): Promise<boolean> => {
 
 const testUser = {
   id: "1",
-  email: "contact@cosdensolutions.io",
+  email: "madas@gmail.com",
   password: "12345678",
 };
 

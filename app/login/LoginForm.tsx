@@ -1,5 +1,4 @@
 "use client";
-
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { login } from "../actions";
@@ -9,7 +8,7 @@ export function LoginForm() {
   const [state, loginAction] = useActionState(login, undefined);
 
   return (
-    <form action={loginAction} className="flex max-w-[300px] flex-col gap-2">
+    <form action={loginAction} className="flex max-w-[300px] flex-col gap-2 py-10">
       <div className="flex flex-col gap-2">
         <input id="email" name="email" placeholder="Email" />
       </div>
@@ -37,7 +36,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending} type="submit">
+    <button disabled={pending} type="submit" className="rounded full bg-gray-300">
       Login
     </button>
   );

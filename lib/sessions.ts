@@ -11,9 +11,10 @@ export async function createSession(userId: string) {
 
   (await cookies()).set("session", session, {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     expires: expiresAt,
   });
+  console.log(session);
 }
 
 export async function deleteSession() {
@@ -40,6 +41,6 @@ export async function decrypt(session: string | undefined = "") {
     });
     return payload;
   } catch (error) {
-    console.log("Failed to verify session");
+    console.log(error);
   }
 }

@@ -3,7 +3,7 @@ import MyImage from "./MyImage"
 const Cart = () => {
   return (
     <div>
-      <MyImage src="/images/cart.png" alt="cart" height={30} width={40} className=""/>
+      <MyImage src="/images/cart.png" alt="cart" height={20} width={30} className=""/>
     </div>
   )
 }

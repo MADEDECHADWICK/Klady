@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 
 const LeftSide = () => {
   return (
-    <div className='w-[200px] py-12'>
+    <div className='w-[180px] py-12 px-1'>
       <div className='py-2 px-2'>
       <h1 className='font-bold py-2'>Clothing</h1>
         <Categories title='Men' content='Choose your wear'/>
