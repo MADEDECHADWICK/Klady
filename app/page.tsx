@@ -1,25 +1,15 @@
-"use client"
+//"use client"
 import Aspect from "@/components/AspectRatio";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
-import { Clothes } from "./data";
-import { getAllClothes } from "./actions";
+
 import ClothCard from "@/components/ClothCard";
 import LoadMore from "@/components/LoadMore";
-import { useEffect, useState } from "react";
+import { fetchClothes } from "@/lib/FetchClothe";
 
-export default function Home() {
-  const [clothes, setClothes] = useState<Clothes[]>([]);
 
-  // Fetch initial data when the component mounts
-  useEffect(() => {
-    const fetchClothes = async () => {
-      const data = await getAllClothes("page=1&limit=3");
-      setClothes(data);
-    };
-
-    fetchClothes();
-  }, []);
+export default async function Home() {
+  const clothes = await fetchClothes();
 
   return (
     <div className="flex">
