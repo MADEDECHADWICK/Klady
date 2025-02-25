@@ -1,5 +1,7 @@
 import MyImage from "./MyImage"
 
+
+
 const Cart = () => {
   return (
     <div>

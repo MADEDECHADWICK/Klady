@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import Product from './models/product.model';
 import { config } from 'dotenv';  // Import dotenv's config function
 import { cwd } from 'process';
-import { clothesData } from '@/app/data';
+import { clothesData } from '@/lib/data';
 
 // Load environment variables from a .env file in the root directory
 config({ path: `${cwd()}/.env.local` });

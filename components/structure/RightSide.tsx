@@ -1,5 +1,6 @@
 import React from 'react'
-import Jewellery from './Jewellery'
+import Jewellery from '../product/Jewellery'
+
 
 const RightSide = () => {
   return (

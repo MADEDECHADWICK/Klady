@@ -1,5 +1,6 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import Offer from "./Offer"
+import Offer from "../product/Offer"
+
 
 
 const Aspect = () => {

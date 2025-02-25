@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
-import SearchBar from './SearchBar'
-import Cart from './Cart'
+import SearchBar from '../shared/SearchBar'
+import Cart from '../shared/Cart'
+
 
 const HeaderComponent = () => {
   return (

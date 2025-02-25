@@ -1,6 +1,6 @@
 import React from 'react'
-import MyImage from './MyImage'
-import { Button } from './ui/button'
+import MyImage from '../shared/MyImage'
+import { Button } from '../ui/button'
 
 const Jewellery = () => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react'
-import Categories from './Categories'
-import { Button } from './ui/button'
+import Categories from '../product/Categories'
+import { Button } from '../ui/button'
+
 
 const LeftSide = () => {
   return (

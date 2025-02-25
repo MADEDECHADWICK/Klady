@@ -1,9 +1,8 @@
-// fetchClothes.ts
+// fetch products
 
-import { getAllClothes } from "@/app/actions";
-import { Clothes } from "@/app/data";
+import { IProductInput } from "@/types";
+import { getAllProducts } from "./actions/products.actions";
 
-
-export async function fetchClothes(): Promise<Clothes[]> {
-  return await getAllClothes("page=1&limit=3");
+export async function fetchClothes(): Promise<IProductInput[]> {
+  return await getAllProducts("page=1&limit=3");
 }

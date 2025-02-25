@@ -1,5 +1,6 @@
 import React from 'react'
-import MyImage from './MyImage'
+import MyImage from '../shared/MyImage'
+
 
 const FooterComponent = () => {
   return (

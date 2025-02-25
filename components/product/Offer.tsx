@@ -9,7 +9,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { type CarouselApi } from "@/components/ui/carousel";
-import MyImage from "./MyImage";
+import MyImage from "../shared/MyImage";
 
 const Offer = () => {
   const [api, setApi] = useState<CarouselApi>();

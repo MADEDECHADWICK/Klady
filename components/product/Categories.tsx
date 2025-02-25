@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 
 
 function Categories ({title,content}: {title:string,content:React.ReactNode}) {

@@ -1,10 +1,11 @@
 //"use client"
-import Aspect from "@/components/AspectRatio";
-import LeftSide from "@/components/LeftSide";
-import RightSide from "@/components/RightSide";
 
-import ClothCard from "@/components/ClothCard";
-import LoadMore from "@/components/LoadMore";
+
+import Aspect from "@/components/shared/AspectRatio";
+import ClothCard from "@/components/shared/ClothCard";
+import LoadMore from "@/components/shared/LoadMore";
+import LeftSide from "@/components/structure/LeftSide";
+import RightSide from "@/components/structure/RightSide";
 import { fetchClothes } from "@/lib/FetchClothe";
 
 

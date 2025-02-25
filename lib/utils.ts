@@ -19,3 +19,20 @@ export const toSlug = (text: string): string =>
     .replace(/\s+/g, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-+/g, '-')
+
+const CURRENCY_FORMATTER = new Intl.NumberFormat('en-KE', {
+  currency: 'KES',
+  style: 'currency',
+  minimumFractionDigits: 2,
+})
+export function formatCurrency(amount: number) {
+  return CURRENCY_FORMATTER.format(amount)
+}
+
+const NUMBER_FORMATTER = new Intl.NumberFormat('en-KE')
+export function formatNumber(number: number) {
+  return NUMBER_FORMATTER.format(number)
+}
+
+export const round2 = (num: number) =>
+  Math.round((num + Number.EPSILON) * 100) / 100
