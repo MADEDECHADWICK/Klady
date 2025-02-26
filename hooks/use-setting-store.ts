@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 import data from '@/lib/data'
 import { ClientSetting, SiteCurrency } from '@/types'
 import { create } from 'zustand'
@@ -25,11 +23,16 @@ const useSettingStore = create<SettingState>((set, get) => ({
     })
   },
   getCurrency: () => {
-    return (
-      get().setting.availableCurrencies.find(
-        (c) => c.code === get().setting.currency
-      ) || data.settings[0].availableCurrencies[0]
-    )
+    // Get the currency object
+    const currency = get().setting.availableCurrencies.find(
+      (c) => c.code === get().setting.currency
+    ) || data.settings[0].availableCurrencies[0];
+    
+    // Override the symbol to 'Ksh' regardless of the original symbol
+    return {
+      ...currency,
+      symbol: 'Ksh'
+    };
   },
   setCurrency: async (currency: string) => {
     set({ setting: { ...get().setting, currency } })

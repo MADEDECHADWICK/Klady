@@ -1,4 +1,4 @@
-import { ProductInputSchema, SettingInputSchema, SiteCurrencySchema } from "@/lib/validation";
+import { CartSchema, OrderItemSchema, ProductInputSchema, SettingInputSchema, ShippingAddressSchema, SiteCurrencySchema } from "@/lib/validation";
 import { z } from "zod";
 
 export type IProductInput = z.infer<typeof ProductInputSchema>
@@ -24,3 +24,6 @@ export type ClientSetting = ISettingInput & {
 }
 export type SiteCurrency = z.infer<typeof SiteCurrencySchema>
 
+export type OrderItem = z.infer<typeof OrderItemSchema>
+export type Cart = z.infer<typeof CartSchema>
+export type ShippingAddress = z.infer<typeof ShippingAddressSchema>

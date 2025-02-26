@@ -1,16 +1,14 @@
-import { clsx, type ClassValue } from "clsx"
+import { clsx, type ClassValue } from "clsx" 
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs)) 
 }
 
 export const formatNumberWithDecimal = (num: number): string => {
   const [int, decimal] = num.toString().split('.')
-  return decimal ? `${int}.${decimal.padEnd(2, '0')}` : int
+  return decimal ? `${int}.${decimal.padEnd(2, '0')}` : int 
 }
-// toSlug ts arrow function that convert text to lowercase, remove non-word,
-// non-whitespace, non-hyphen characters, replace whitespace, trim leading hyphens and trim trailing hyphens
 
 export const toSlug = (text: string): string =>
   text
@@ -20,19 +18,27 @@ export const toSlug = (text: string): string =>
     .replace(/^-+|-+$/g, '')
     .replace(/-+/g, '-')
 
+// Update the CURRENCY_FORMATTER to use 'Ksh' as the currency symbol
 const CURRENCY_FORMATTER = new Intl.NumberFormat('en-KE', {
-  currency: 'KES',
   style: 'currency',
+  currency: 'KES',
   minimumFractionDigits: 2,
-})
+  // Add these options to customize the currency display
+  currencyDisplay: 'narrowSymbol'
+});
+
 export function formatCurrency(amount: number) {
-  return CURRENCY_FORMATTER.format(amount)
+  // Replace the $ symbol with Ksh in the formatted string
+  return CURRENCY_FORMATTER.format(amount).replace('KSh', 'Ksh')
 }
 
-const NUMBER_FORMATTER = new Intl.NumberFormat('en-KE')
+const NUMBER_FORMATTER = new Intl.NumberFormat('en-KE') 
 export function formatNumber(number: number) {
-  return NUMBER_FORMATTER.format(number)
+  return NUMBER_FORMATTER.format(number) 
 }
 
 export const round2 = (num: number) =>
   Math.round((num + Number.EPSILON) * 100) / 100
+
+export const generateId = () =>
+  Array.from({ length: 24 }, () => Math.floor(Math.random() * 10)).join('')
